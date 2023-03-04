@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<robot name="arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find arm_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find arm_description)/urdf/arm.trans" />
+<xacro:include filename="$(find arm_description)/urdf/arm.gazebo" />
+
+<link name="world"></link>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.5583310805039967e-06 0.058762918800636485 0.07348515003124369" rpy="0 0 0"/>
+    <mass value="10"/>
+    <inertia ixx="1.66" iyy="1.66" izz="1.66" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="u_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="2"/>
+    <inertia ixx="0.3334" iyy="0.3334" izz="0.3334" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 -0.16" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/u_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 -0.16" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/u_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="4"/>
+    <inertia ixx="0.6667" iyy="0.6667" izz="0.6667" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.062802 -0.0 -0.267" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.062802 -0.0 -0.267" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_cap2_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.04651284138238731"/>
+    <inertia ixx="0.015" iyy="00.015" izz="0.015" ixy="0" iyz="0.0" ixz="-0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045822 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_cap2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045822 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_cap2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_cap1_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.04651284138238731"/>
+    <inertia ixx="0.015" iyy="00.015" izz="0.015" ixy="0" iyz="0.0" ixz="-0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.044178 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_cap1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.044178 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/shoulder_cap1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbow_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="3.77"/>
+    <inertia ixx="0.6" iyy="0.6" izz="0.6" ixy="0.0" iyz="0.0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.035822 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.035822 -0.0 -0.498806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbow_cap2_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.04651284138238731"/>
+    <inertia ixx="0.015" iyy="00.015" izz="0.015" ixy="0" iyz="0.0" ixz="-0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.035822 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_cap2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.035822 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_cap2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbow_cap1_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.04651284138238731"/>
+    <inertia ixx="0.015" iyy="00.015" izz="0.015" ixy="0" iyz="0.0" ixz="-0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034178 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_cap1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034178 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/elbow_cap1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wrist_1">
+  <inertial>
+    <origin xyz="0.02596103508467108 0.0019201483715676508 0.02309591219585605" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.16667" iyy="0.16667" izz="0.16667" ixy="0" iyz="-0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.025178 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/wrist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.025178 -0.0 -0.703806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/wrist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tool_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.2"/>
+    <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000822 0.006285 -0.806946" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/tool_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000822 0.006285 -0.806946" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/tool_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="f1_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.05"/>
+    <inertia ixx="0.008" iyy="0.008" izz="0.008" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.010615 -0.004715 -0.858383" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/f1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.010615 -0.004715 -0.858383" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/f1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="f2_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.05"/>
+    <inertia ixx="0.008" iyy="0.008" izz="0.008" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.012259 -0.004715 -0.858383" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/f2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.012259 -0.004715 -0.858383" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://arm_description/meshes/f2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="just" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+</joint>
+
+
+<joint name="base_to_ulink" type="revolute">
+  <origin xyz="0.0 0.0 0.16" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="u_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="2.530727" lower="-2.530727" effort="1" velocity="10"/>
+</joint>
+
+<joint name="ulink_to_shoulderlink" type="revolute">
+  <origin xyz="0.062802 0.0 0.107" rpy="0 0 0"/>
+  <parent link="u_link_1"/>
+  <child link="shoulder_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="1" velocity="10"/>
+</joint>
+
+<joint name="shouldercap2" type="fixed">
+  <origin xyz="-0.01698 0.0 0.231806" rpy="0 0 0"/>
+  <parent link="shoulder_link_1"/>
+  <child link="shoulder_cap2_1"/>
+</joint>
+
+<joint name="shouldercap1" type="fixed">
+  <origin xyz="-0.10698 0.0 0.231806" rpy="0 0 0"/>
+  <parent link="shoulder_link_1"/>
+  <child link="shoulder_cap1_1"/>
+</joint>
+
+<joint name="shoulderlink_to_elbowlink" type="revolute">
+  <origin xyz="-0.02698 0.0 0.231806" rpy="0 0 0"/>
+  <parent link="shoulder_link_1"/>
+  <child link="elbow_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="1.745329" lower="-1.745329" effort="1" velocity="10"/>
+</joint>
+
+<joint name="elbowcap1" type="fixed">
+  <origin xyz="0.0 0.0 0.205" rpy="0 0 0"/>
+  <parent link="elbow_link_1"/>
+  <child link="elbow_cap2_1"/>
+</joint>
+
+<joint name="elbowcap2" type="fixed">
+  <origin xyz="-0.07 0.0 0.205" rpy="0 0 0"/>
+  <parent link="elbow_link_1"/>
+  <child link="elbow_cap1_1"/>
+</joint>
+
+<joint name="elbowlink_to_wristlink" type="revolute">
+  <origin xyz="-0.061 0.0 0.205" rpy="0 0 0"/>
+  <parent link="elbow_link_1"/>
+  <child link="wrist_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="1.745329" lower="-1.745329" effort="1" velocity="10"/>
+</joint>
+
+<joint name="wristlink_to_toollink" type="continuous">
+  <origin xyz="0.026 -0.006285 0.10314" rpy="0 0 0"/>
+  <parent link="wrist_1"/>
+  <child link="tool_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="toolf1" type="revolute">
+  <origin xyz="-0.011437 0.011 0.051437" rpy="0 0 0"/>
+  <parent link="tool_1"/>
+  <child link="f1_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="0.261799" lower="0.0" effort="1" velocity="10"/>
+</joint>
+
+<joint name="toolf2" type="revolute">
+  <origin xyz="0.011437 0.011 0.051437" rpy="0 0 0"/>
+  <parent link="tool_1"/>
+  <child link="f2_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="0.0" lower="-0.261799" effort="1" velocity="10"/>
+</joint>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <!-- <robotNamespace>/arm</robotNamespace> -->
+  </plugin>
+</gazebo>
+<gazebo>
+  <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+    <jointName>base_to_ulink,elbowlink_to_wristlink,shoulderlink_to_elbowlink,toolf1,toolf2,ulink_to_shoulderlink,wristlink_to_toollink </jointName>
+  </plugin>
+</gazebo>
+
+
+</robot>

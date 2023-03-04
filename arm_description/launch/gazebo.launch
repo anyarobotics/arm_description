@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <param name="robot_description" command="$(find xacro)/xacro $(find arm_description)/urdf/arm.urdf.xacro"/>
+  <rosparam file="$(find arm_description)/launch/controller.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="arm_controller1 arm_controller2 arm_controller3 arm_controller4 arm_controller5 arm_controller6 arm_controller7 joint_state_controller"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model arm"/>  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!-- <arg name="world_name" value="worlds/willowgarage.world"/> -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+
+  </node> 
+  
+</launch>

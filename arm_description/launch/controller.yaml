@@ -1,0 +1,56 @@
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50 
+arm_controller1:  
+  type: position_controllers/JointPositionController
+  joint: base_to_ulink
+arm_controller2:  
+  type: position_controllers/JointPositionController
+  joint: elbowlink_to_wristlink
+arm_controller3:  
+  type: position_controllers/JointPositionController
+  joint: shoulderlink_to_elbowlink
+arm_controller4:  
+  type: position_controllers/JointPositionController
+  joint: toolf1
+arm_controller5:  
+  type: position_controllers/JointPositionController
+  joint: toolf2
+arm_controller6:  
+  type: position_controllers/JointPositionController
+  joint: ulink_to_shoulderlink
+arm_controller7:  
+  type: position_controllers/JointPositionController
+  joint: wristlink_to_toollink
+
+# /gazebo_ros_control:
+#   pid_gains:
+#     base_to_ulink:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
+#     elbowlink_to_wristlink:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
+#     shoulderlink_to_elbowlink:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
+#     toolf1:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
+#     toolf2:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
+#     ulink_to_shoulderlink:
+#      p: 0.0
+#      i: 0.01
+#      d: 10.0
+#     wristlink_to_toollink:
+#      p: 100.0
+#      i: 0.0
+#      d: 0.0
